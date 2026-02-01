@@ -1,23 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Custom Styles for modern/soft design -->
+  <style>
+    body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.8; margin: 0; padding: 0; background-color: #fcfcfc; color: #444; }
+    header { background-color: #e0f7fa; text-align: center; padding: 60px 20px; border-bottom: 5px solid #00bcd4; }
+    h1 { color: #00796b; margin-bottom: 10px; font-weight: 700; font-size: 2.2em; }
+    header p { color: #00796b; font-size: 1.1em; max-width: 800px; margin: 0 auto 20px; font-weight: 400; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; border-radius: 10px; margin-bottom: 20px; }
+    section:nth-child(even) { background-color: #f1f8e9; }
+    h2 { color: #00796b; font-size: 1.8em; border-left: 5px solid #81c784; padding-left: 15px; margin-top: 0; margin-bottom: 25px; font-weight: 700; }
+    h3 { color: #388e3c; font-size: 1.4em; border-bottom: 2px solid #c8e6c9; padding-bottom: 5px; margin-top: 30px; }
+    p { margin-bottom: 15px; text-align: justify; }
+    .highlight { background-color: #fffde7; padding: 10px; border-radius: 5px; border: 1px dashed #ffeb3b; font-weight: bold; }
+    ul, ol { padding-left: 20px; margin-bottom: 20px; }
+    li { margin-bottom: 10px; line-height: 1.7; }
+    .cta-button { display: inline-block; padding: 15px 30px; background-color: #4caf50; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.1em; font-weight: 700; transition: background-color 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .cta-button:hover { background-color: #388e3c; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    th, td { border: 1px solid #e0e0e0; padding: 12px 15px; text-align: center; }
+    th { background-color: #f0f4c3; font-weight: 700; color: #555; }
+    td { font-size: 0.95em; }
+
+    /* Forms */
+    form { background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 30px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 700; color: #555; }
+    input[type="text"], input[type="email"], input[type="tel"], select { width: calc(100% - 22px); padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; }
+    textarea { width: calc(100% - 22px); padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; height: 100px; }
+    .form-submit { background-color: #4caf50; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.3s; }
+    .form-submit:hover { background-color: #388e3c; }
+
+    /* Footer */
+    footer { background-color: #4db6ac; color: #fff; text-align: center; padding: 25px 20px; font-size: 0.9em; margin-top: 30px; }
+    footer a { color: #fff; text-decoration: underline; }
+  </style>
+
+  <!-- Schema Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "치과보험 면책기간이란 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "치과보험 면책기간은 보험 가입 후 일정 기간 동안에는 보험금을 지급하지 않는 기간을 의미합니다. 이는 보험 가입자가 이미 질병을 알고 가입하는 것을 방지하기 위한 제도입니다. 일반적으로 가입일로부터 90일이 가장 흔한 면책기간입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "면책기간과 감액기간의 차이점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "면책기간은 보험금 지급이 아예 되지 않는 기간이고, 감액기간은 보험금을 100%가 아닌 50% 등 일정 비율만 지급하는 기간입니다. 면책기간 이후 감액기간이 시작되며, 감액기간이 끝나야 온전한 보험금을 받을 수 있습니다. 보철치료의 경우 면책기간 90일 후 1~2년의 감액기간을 두는 경우가 일반적입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "치과보험 가입 시 면책기간을 줄이는 방법이 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "일부 보험사에서는 무진단형(고지형) 상품 대신 건강진단형 상품을 통해 면책기간을 줄여주거나 없애주는 옵션을 제공하기도 합니다. 또한, 회사별, 상품별로 면책기간이 다르므로 가입 시 꼼꼼한 비교가 필요합니다. 이미 아픈 상태에서는 가입이 어렵거나 제한될 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "충치치료와 임플란트 면책기간이 다른가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네, 다릅니다. 보존치료(충치치료, 레진, 크라운)는 면책기간이 90일(3개월)로 짧은 편이지만, 고액의 보철치료(임플란트, 브릿지, 틀니)는 면책기간이 90일 이후 1년 또는 2년의 감액기간이 추가됩니다. 면책기간이 끝났더라도 보철치료의 경우 감액기간이 남아있을 수 있으니 약관을 꼭 확인해야 합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "치과보험 가입을 위한 가장 좋은 시기는 언제인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "치과보험 가입은 치아 상태가 건강할 때 하는 것이 가장 좋습니다. 특히 면책기간이 적용되므로, 급하게 치료가 필요할 때 가입하면 혜택을 받을 수 없습니다. 정기적인 치과 검진 전, 혹은 치아 상태가 좋을 때 가입하는 것이 가장 유리합니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>치과보험 면책기간, 감액기간 완벽 분석 및 비교 (2026년 최신 정보)</h1>
+    <p>치과보험 가입 전 꼭 확인해야 할 면책기간과 감액기간의 모든 것. 2026년 보험 시장 동향과 주요 상품 비교 분석을 통해 합리적인 치과보험 가입 전략을 제시합니다.</p>
+    <a href="#consultation" class="cta-button">📞 무료 견적 및 전문가 상담</a>
+  </header>
+
+  <section id="introduction">
+    <h2>치과보험 면책기간, 왜 중요할까요?</h2>
+    <p>치과 치료는 국민건강보험의 비급여 항목이 많아 환자 본인 부담이 높은 편입니다. 특히 임플란트, 보철치료 등 고액 치료의 경우 비용 부담이 상당하여 많은 분들이 치과보험 가입을 고려합니다. 하지만 치과보험 가입 후 바로 혜택을 받을 수 없다는 사실을 아시나요? 바로 <strong>'면책기간(waiting period)'</strong> 때문입니다.</p>
+    <p>면책기간이란 보험 가입 시점부터 일정 기간 동안은 보험금 지급이 면제되는 기간을 말합니다. 이 제도는 보험사가 가입자가 질병을 인지하고 보험에 가입하는 '역선택(Anti-selection)'을 방지하기 위해 마련된 것입니다. 치과보험을 제대로 활용하려면 이 면책기간을 정확히 이해하는 것이 필수적입니다. 단순히 <strong>저렴한곳</strong>이나 <strong>싼곳</strong>을 찾는 것도 중요하지만, 보장 내용을 꼼꼼히 따져보고 <strong>내돈내산 후기</strong>를 참고하여 나에게 맞는 상품을 선택해야 합니다. <strong>2026년도</strong>에 새롭게 개정된 약관을 기준으로 면책기간의 <strong>평균</strong>과 <strong>장단점</strong>을 상세히 살펴보겠습니다.</p>
+  </section>
+
+  <section id="definition">
+    <h2>면책기간(면책기간) vs. 감액기간(감액기간) 개념 정리</h2>
+    <p>치과보험을 논할 때 가장 많이 헷갈리는 부분이 바로 면책기간과 감액기간입니다. 이 두 가지는 보장 개시일 전에 적용되는 제한 기간으로, 정확히 이해해야 불필요한 오해를 막고 보험금 청구에 문제가 생기지 않습니다.</p>
+    <p><strong>1. 면책기간: 보장 '시작'이 안 되는 기간</strong></p>
+    <ul>
+      <li><strong>정의:</strong> 보험 가입 후 일정 기간 동안에는 보험금을 전혀 지급받을 수 없는 기간입니다. 면책기간 동안 발생한 치과 치료에 대해서는 보험금을 청구할 수 없습니다.</li>
+      <li><strong>일반적인 기간:</strong> 대부분의 치과보험 상품에서 <strong>면책기간은 90일(3개월)</strong>로 설정됩니다. 이 기간 동안 치료를 받는다면 보험 혜택을 받을 수 없습니다.</li>
+      <li><strong>적용 치료:</strong> 보존치료(충치, 레진, 크라운)와 보철치료(임플란트, 브릿지) 모두 면책기간이 적용되는 경우가 많습니다.</li>
+    </ul>
+    <p><strong>2. 감액기간: 보장 '금액'이 줄어드는 기간</strong></p>
+    <ul>
+      <li><strong>정의:</strong> 면책기간이 종료된 후, 일정 기간 동안 보험금의 일부(보통 50%)만 지급하는 기간입니다. 감액기간이 끝나야 비로소 100%의 보험금을 받을 수 있습니다.</li>
+      <li><strong>일반적인 기간:</strong> 주로 고액의 보철치료(임플란트, 브릿지, 틀니)에 적용되며, <strong>감액기간은 1년(12개월) 또는 2년(24개월)</strong>로 설정되는 경우가 많습니다.</li>
+      <li><strong>적용 치료:</strong> 보존치료는 면책기간이 종료되면 바로 100% 보장되는 경우가 많으나, 보철치료는 대부분 감액기간이 추가됩니다.</li>
+    </ul>
+    <div class="highlight">
+      <strong>핵심 요약:</strong> 면책기간(보장 없음) &rarr; 감액기간(보장 50%) &rarr; 보장개시일 이후(보장 100%) 순서로 진행됩니다.
+    </div>
+  </section>
+
+  <section id="comparison_table">
+    <h2>주요 치과 치료별 면책기간 및 감액기간 비교 (2026년 기준)</h2>
+    <p>상품 유형과 보험사별로 차이가 있을 수 있지만, 2026년 기준 치과보험의 일반적인 면책/감액기간 구조는 다음과 같습니다. <strong>치과보험 비교</strong>를 통해 가입 시기를 결정하는 데 도움이 될 수 있습니다.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>치료 유형</th>
+          <th>보존치료 (충치, 레진, 인레이)</th>
+          <th>보철치료 (임플란트, 브릿지)</th>
+          <th>신경치료 (근관치료)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>면책기간 (보장X)</strong></td>
+          <td>90일 (3개월)</td>
+          <td>90일 (3개월)</td>
+          <td>90일 (3개월)</td>
+        </tr>
+        <tr>
+          <td><strong>감액기간 (50% 보장)</strong></td>
+          <td>없음 (면책기간 후 100% 보장)</td>
+          <td>1년 (12개월) ~ 2년 (24개월)</td>
+          <td>없음 (면책기간 후 100% 보장)</td>
+        </tr>
+        <tr>
+          <td><strong>100% 보장개시 시점</strong></td>
+          <td>가입일로부터 91일째</td>
+          <td>가입일로부터 1년 또는 2년 1일째</td>
+          <td>가입일로부터 91일째</td>
+        </tr>
+        <tr>
+          <td><strong>예상 비용 절감 장점</strong></td>
+          <td>단기적으로 발생 가능한 충치 치료 비용 절감</td>
+          <td>장기적으로 고액의 임플란트 <strong>금액</strong> 및 <strong>가격</strong> 부담 완화</td>
+          <td>신경치료로 인한 통증 및 비용 부담 경감</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>참고:</strong> 위 표는 일반적인 <strong>평균</strong>이며, 보험사별로 면책기간이 다를 수 있습니다. 특히 <strong>저렴한곳</strong>이나 <strong>싼곳</strong>을 찾는 경우, 면책기간이 길거나 보장 금액이 낮은 상품일 수 있으므로 주의해야 합니다.</p>
+  </section>
+
+  <section id="factors_and_tips">
+    <h2>치과보험 면책기간을 이해하고 가입하는 현명한 방법</h2>
+    <p>치과보험 가입을 결정했다면, 면책기간을 고려한 현명한 전략이 필요합니다. <strong>내돈내산</strong> 고객들의 <strong>후기</strong>를 보면, 면책기간을 제대로 알지 못해 낭패를 보는 경우가 많습니다.</p>
+
+    <h3>1. 가입 시점의 중요성: 면책기간의 <strong>장점</strong>과 <strong>단점</strong></h3>
+    <p>치과보험의 가장 큰 <strong>장점</strong>은 고액 치료비 대비 낮은 보험료입니다. 하지만 <strong>단점</strong>은 면책기간으로 인해 원하는 시점에 바로 혜택을 받을 수 없다는 것입니다. 만약 현재 치아에 통증이 있거나 치료 계획이 있다면, 면책기간이 시작되기 전에 치료를 받는 것이 좋습니다. 이미 통증이 시작된 후 가입하면 면책기간 때문에 보장을 받을 수 없을 뿐만 아니라, 치료 이력으로 인해 향후 보험 가입 자체가 거절될 수도 있습니다.</p>
+
+    <h3>2. 갱신형 vs. 비갱신형 면책기간 <strong>차이점</strong></h3>
+    <p><strong>갱신형</strong>은 일정 기간마다 보험료가 변동되는 상품으로, 초기 보험료가 <strong>저렴한</strong> 편입니다. <strong>비갱신형</strong>은 처음 가입 시 보험료가 만기까지 일정하게 유지되어 장기적으로 <strong>예상 비용</strong>을 예측하기 쉽습니다. 면책기간 자체는 갱신형과 비갱신형에 큰 차이가 없지만, 비갱신형이 장기적으로 보장을 유지할 때 유리할 수 있습니다.</p>
+
+    <h3>3. 진단형 vs. 무진단형(고지형)</h3>
+    <p><strong>진단형 상품</strong>은 치과 검진을 받아야 가입이 가능하며, 이미 치아가 건강하다는 것이 확인되므로 면책기간이 짧거나 없는 경우가 많습니다. 반면 <strong>무진단형 상품</strong>은 별도의 진단 없이 고지사항(최근 1년 이내 치과치료 여부 등)만으로 가입할 수 있어 편리하지만, 면책기간이 길게 설정됩니다.</p>
+    <div class="highlight">
+      <strong>전문가 팁:</strong> 치과보험 가입을 고려한다면, 치과 검진을 받기 전에 가입하는 것이 유리합니다. 검진 후 치료가 필요하다는 진단을 받으면 고지사항에 해당되어 가입이 거절되거나 보장이 제한될 수 있습니다.
+    </div>
+  </section>
+
+  <section id="faq_detailed">
+    <h2>자주 묻는 질문 (FAQ) - 면책기간 관련 Q&A</h2>
+
+    <h3>Q1. 면책기간 중 급하게 치료를 받으면 어떻게 되나요?</h3>
+    <p>면책기간 중 받은 치료에 대해서는 보험금을 지급받을 수 없습니다. 치료가 급한 경우, 보험 혜택 없이 본인 <strong>비용</strong>으로 치료를 진행해야 합니다. 면책기간은 가입 즉시 시작되며, 치료를 받은 날짜가 면책기간 내에 포함되는지 여부가 중요합니다.</p>
+
+    <h3>Q2. 이미 치료받은 치아도 다시 보철치료(임플란트)를 받으면 보장되나요?</h3>
+    <p>기존에 치료받은 치아는 보장이 되지 않습니다. 하지만 치아보험에는 대부분 보철치료 보장 항목이 있습니다. 예를 들어, 이미 크라운 치료를 받은 치아가 재치료가 필요해 임플란트를 하게 된다면, 해당 임플란트 치료에 대해서는 보장이 가능합니다. (단, 면책기간 및 감액기간 충족 시)</p>
+
+    <h3>Q3. 치과보험 <strong>순위</strong>와 <strong>추천</strong> 상품은 무엇인가요?</h3>
+    <p>특정 보험사의 <strong>순위</strong>나 <strong>추천</strong> 상품을 언급하기는 어렵습니다. 개인의 치아 상태, 나이, 생활 습관, 원하는 보장 범위 등에 따라 가장 적합한 상품이 달라집니다. 보철치료가 중요하면 감액기간이 짧은 상품을, 보존치료가 중요하면 보존치료 횟수 제한이 없는 상품을 선택해야 합니다. <strong>치과보험 비교</strong> 사이트에서 여러 상품의 <strong>견적</strong>을 받아보는 것이 좋습니다.</p>
+
+    <h3>Q4. <strong>2026년도</strong>에 치과보험 면책기간에 변경된 사항이 있나요?</h3>
+    <p><strong>2026년도</strong>에도 기본적인 면책/감액기간 구조는 크게 변하지 않았습니다. 다만, 일부 신규 상품에서는 면책기간을 1년(12개월)으로 설정하는 대신, 보장 금액을 높이는 등 상품 구조가 다양화되는 추세입니다. 가입 전 반드시 약관을 확인해야 합니다.</p>
+
+    <h3>Q5. 치아보험 가입 시 고지 의무는 무엇인가요?</h3>
+    <p>보험 가입 시, 최근 1년 이내 치과치료(충치, 잇몸질환 등) 여부, 최근 5년 이내 치주질환 등으로 인한 수술이나 입원 여부 등을 정확하게 알려야 합니다. 고지 의무를 위반하면 보험 가입이 무효가 될 수 있습니다.</p>
+  </section>
+
+  <section id="consultation">
+    <h2>[2026년] 나에게 맞는 치과보험 <strong>무료 견적</strong> 상담 신청</h2>
+    <p>복잡한 치과보험 면책기간과 보장 내용을 한눈에 비교하고 싶다면 전문가의 도움을 받으세요. 개인별 치아 상태와 <strong>예상 비용</strong>에 맞춰 최적의 <strong>치과보험 가입</strong> 상품을 <strong>추천</strong>해 드립니다. <strong>저렴한곳</strong>, <strong>싼곳</strong>을 찾는 분들도 꼼꼼한 비교를 통해 현명한 선택을 할 수 있습니다.</p>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">연락처:</label>
+        <input type="tel" id="phone" name="phone" placeholder="010-xxxx-xxxx" required>
+      </div>
+      <div class="form-group">
+        <label for="age">나이:</label>
+        <input type="number" id="age" name="age" min="20" max="60" required>
+      </div>
+      <div class="form-group">
+        <label for="concern">주요 관심사 (중복 선택 가능):</label><br>
+        <input type="checkbox" id="concern1" name="concern" value="면책기간"> <label for="concern1">면책기간 단축</label><br>
+        <input type="checkbox" id="concern2" name="concern" value="비용절감"> <label for="concern2">보험료 <strong>저렴한곳</strong></label><br>
+        <input type="checkbox" id="concern3" name="concern" value="보철치료"> <label for="concern3">임플란트 <strong>보장</strong></label><br>
+        <input type="checkbox" id="concern4" name="concern" value="보존치료"> <label for="concern4">충치/신경치료 보장</label>
+      </div>
+      <div class="form-group">
+        <label for="question">궁금한 점 (자유롭게 문의하세요):</label>
+        <textarea id="question" name="question"></textarea>
+      </div>
+      <button type="submit" class="form-submit">무료 상담 신청</button>
+    </form>
+  </section>
+
+  <section id="external_links">
+    <h2>신뢰할 수 있는 외부 정보 출처</h2>
+    <p>치과보험 및 치과 치료에 대한 더 자세한 정보는 아래 공신력 있는 기관의 웹사이트를 참고하세요.</p>
+    <ul>
+      <li><a href="https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=183313&efYd=20160101#0000" target="_blank">국가법령정보센터 (치과 관련 법규)</a></li>
+      <li><a href="https://www.koreains.or.kr/" target="_blank">생명보험협회/손해보험협회 (보험 상품 비교 공시)</a></li>
+      <li><a href="https://namu.wiki/w/%EC%B9%98%EC%95%84%EB%B3%B4%ED%97%98" target="_blank">나무위키 - 치아보험 (정보성 참고 자료)</a></li>
+      <li><a href="https://www.nhis.or.kr/nhis/index.do" target="_blank">국민건강보험공단 (치과 건강보험 급여 항목 정보)</a></li>
+      <li><a href="https://www.fss.or.kr/fss/main/index.jsp" target="_blank">금융감독원 (보험 관련 소비자 보호 및 약관)</a></li>
+    </ul>
+  </section>
+
+  <section id="additional_info">
+    <h2>치과보험 면책기간 <strong>장단점</strong> 심층 분석 및 <strong>차이점</strong> 비교</h2>
+    <p>면책기간 제도는 소비자에게 <strong>단점</strong>으로 느껴질 수 있지만, 보험사 입장에서는 <strong>장점</strong>이기도 합니다. 보험사는 이 기간을 통해 예상치 못한 손실을 방지하고, 결과적으로 보험료를 안정적으로 유지할 수 있습니다. 만약 면책기간이 없다면, 아픈 사람만 보험에 가입하여 즉시 보험금을 청구하게 되고, 이는 보험료 인상으로 이어져 건강한 가입자에게 피해를 줄 수 있습니다. 즉, 면책기간은 보험 제도 전체의 안정성을 위한 <strong>필수 요소</strong>입니다.</p>
+    <p>따라서 <strong>치과보험 비교</strong>를 할 때, 단순히 <strong>견적</strong> <strong>가격</strong>이 <strong>저렴한곳</strong>만 볼 것이 아니라, 면책기간 이후의 보장 한도, 갱신 여부, 중도 해지 환급금 등을 종합적으로 고려해야 합니다. 치과보험은 가입 후 <strong>평균</strong> 1년에서 2년 후에 보철치료 혜택을 온전히 받을 수 있습니다. 가입 시점과 <strong>예상 비용</strong>을 꼼꼼히 계산하여 <strong>내돈내산</strong> 고객들의 <strong>후기</strong>를 참고하여 현명한 결정을 내리세요.</p>
+  </section>
+
+  
